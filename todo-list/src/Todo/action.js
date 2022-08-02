@@ -1,4 +1,4 @@
-import {SET_JOB, ADD_JOB, DELETE_JOB} from './constants'
+import {SET_JOB, ADD_JOB, DELETE_JOB, FILTER_ACTIVE, FILTER_COMP} from './constants'
 
 export const setJob = payload => {
     return {
@@ -17,6 +17,20 @@ export const addJob = payload => {
 export const deleteJob = payload => {
     return {
     type: DELETE_JOB,
+    payload
+    }
+}
+
+export const filter_active = payload => {
+    return {
+    type: FILTER_ACTIVE,
+    payload
+    }
+}
+
+export const filter_comp = payload => {
+    return {
+    type: FILTER_COMP,
     payload
     }
 }
