@@ -1,10 +1,10 @@
-import { FILTER, SET_FILTER} from "../constants";
+import { TASK} from "../constants";
 
-const initState = SET_FILTER.FILTER_ALL;
+const initState = TASK.SET_FILTER.FILTER_ALL;
 
 const setFilter = (state = initState, action) => {
     switch(action.type) {
-        case FILTER: {
+        case TASK.FILTER: {
             console.log('hhhh', action.payload.filter)
             console.log('ggg', state)
             return action.payload.filter;
