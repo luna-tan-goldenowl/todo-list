@@ -1,7 +1,13 @@
-import TodoApp from './Todo'
+import AddTodo from './Todo/components/index'
+import SetFilter from './Todo/components/filter';
+// import FilterList from './Todo/components/filterList';
 
 function App() {
-  return <TodoApp/>
+  return (<div>
+          <AddTodo/>
+          <SetFilter/>
+          {/* <FilterList/> */}
+        </div>)
 }
 
 export default App;

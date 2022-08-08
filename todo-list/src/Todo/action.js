@@ -1,36 +1,40 @@
-import {SET_JOB, ADD_JOB, DELETE_JOB, FILTER_ACTIVE, FILTER_COMP} from './constants'
+import { ADD_JOB, DELETE_JOB, FILTER} from './constants'
 
-export const setJob = payload => {
-    return {
-    type: SET_JOB,
-    payload
-    }
-}
+let jobId = 0;
 
-export const addJob = payload => {
-    return {
+export const addJob = name => ({
     type: ADD_JOB,
-    payload
+    payload: {
+        id: jobId++,
+        name
     }
-}
+});
 
-export const deleteJob = payload => {
-    return {
+export const deleteJob = id=> ({
     type: DELETE_JOB,
-    payload
+    payload: id
+})
+
+export const filter = filter => {
+    return {
+    type: FILTER,
+    payload: {filter}
     }
 }
 
-export const filter_active = payload => {
-    return {
-    type: FILTER_ACTIVE,
-    payload
-    }
-}
+// export const filter_comp = filter_comp => {
+//     return {
+//     type: FILTER_COMP,
+//     payload: {filter_comp}
+//     }
+// }
 
-export const filter_comp = payload => {
-    return {
-    type: FILTER_COMP,
-    payload
-    }
-}
+// export const filter_all = filter_all => {
+//     return {
+//     type: FILTER_ALL,
+//     payload: {filter_all}
+//     }
+// }
+
+
+
