@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { addJob, deleteJob } from './Todo/actions/task'
-import {TASK} from './Todo/constants';
+import {TASK} from './Todo/actionType';
 
 import { useSelector,useDispatch } from 'react-redux'
 
@@ -12,8 +12,6 @@ function App() {
   const [value, setValue] = useState('');
 
   const [currentFilter, setCurrentFilter] = useState(TASK.SET_FILTER.FILTER_ALL);
-
-  console.log("fghjkl", jobs)
 
   const getTodosByFilter = useMemo(() => {
     switch (currentFilter) {
@@ -34,7 +32,6 @@ function App() {
 
   const handleDeleteJob = (id) => {
     dispatch(deleteJob(id))
-    console.log("hhh jkunb", id)
   }
 
   const handleChangeFilter = (val) => setCurrentFilter(val);
@@ -84,7 +81,6 @@ function App() {
         <ul className='tasks'>
           {Object.keys(TASK.SET_FILTER).map((type) => {
             const currFilter = TASK.SET_FILTER[type]
-            console.log("nè", currFilter)
             return (
               <button
                 key={`${currFilter}`}

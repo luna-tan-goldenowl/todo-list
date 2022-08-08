@@ -6,12 +6,10 @@ import todo from "./reducer/todo";
 import setFilter from "./reducer/set-filter";
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-
 const persistConfig = {
     key: 'root',
     storage,
 }
-
 
 const rootReducer = combineReducers({
     todo,

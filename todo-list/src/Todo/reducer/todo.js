@@ -1,4 +1,4 @@
-import {TASK} from '../constants/'
+import {TASK} from '../actionType'
 
 export const initState = {
     jobs: []
