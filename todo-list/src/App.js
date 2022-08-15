@@ -1,6 +1,8 @@
 import { useState, useMemo } from "react";
 import { addJob, deleteJob } from "./Todo/actions/task";
 import { TASK } from "./Todo/actionType";
+import arrow from "./arrow_down.svg";
+import check from "./check.svg";
 import "./index.scss";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -36,23 +38,29 @@ function App() {
     dispatch(deleteJob(id));
   };
 
+  const handleRemoveJob = (id) => {
+    dispatch(deleteJob(id));
+  };
+
   const handleChangeFilter = (val) => setCurrentFilter(val);
 
   return (
-    <div className="container">
+    <section className="container">
       <div>
         <h1 className="title">todos</h1>
       </div>
       <div className="todoapp">
         <form action="">
-          <img src="" alt="" />
-          <input
-            type="text"
-            className="input-todo"
-            value={value}
-            placeholder="What needs to be done?"
-            onChange={(e) => setValue(e.target.value)}
-          />
+          <div className="arrow-input">
+            <img className="arrow-down" src={arrow} alt="" />
+            <input
+              type="text"
+              className="input-todo"
+              value={value}
+              placeholder="What needs to be done?"
+              onChange={(e) => setValue(e.target.value)}
+            />
+          </div>
           <button
             className="btn-add"
             type="submit"
@@ -67,8 +75,13 @@ function App() {
           <ul className="tasks">
             {getTodosByFilter.map((job) => (
               <li key={job?.id}>
-                <div>
-                  <input class="checkbox" type="box" checked></input>
+                <div className="todo-job">
+                  <input
+                    class="checkbox"
+                    type="button"
+                    onClick={() => handleDeleteJob(job?.id)}
+                    style={{ background: job?.id ? { check } : "none" }}
+                  ></input>
                   <button
                     style={{
                       backgroundColor: "transparent",
@@ -108,7 +121,7 @@ function App() {
           </ul>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
